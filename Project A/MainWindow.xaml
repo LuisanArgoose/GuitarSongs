@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800"
         x:Name="mainWindow">
     <Grid>
-            <Frame x:Name ="rootFrame"/>
+            <Frame x:Name ="rootFrame" Visibility="Visible"/>
     </Grid>
 
 </Window>

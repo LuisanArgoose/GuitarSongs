@@ -23,6 +23,7 @@ namespace Project_A
         public MainWindow()
         {
             InitializeComponent();
+            //Пример переключения на страницу
             rootFrame.Navigate(new Pages.StartPage());
         }
     }
