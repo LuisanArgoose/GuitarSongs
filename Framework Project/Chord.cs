@@ -9,92 +9,88 @@ namespace Project_A
     public class Chord
     {
         private string name;
-        private Dictionary<int, int> chordsPosition;
+        private Dictionary<int, int?> chordsPosition;
         private int? bare;
         private int firstFret;
         private int length;
 
         // Constructor
-        public Chord(string name, Dictionary<int, int> chordsPosition)
+        public Chord()
         {
-            this.name = name;
-            this.chordsPosition = chordsPosition;
-
-            this.firstFret = chordsPosition[1];
-            foreach (int fret in this.chordsPosition.Values)
+            this.name = "Em";
+            this.chordsPosition = new Dictionary<int, int?>
             {
-                if ((fret < this.firstFret) && (fret != 0))
-                {
-                    this.firstFret = fret;
-                }
-            }
-            int maxFret = this.chordsPosition[1];
-            foreach (int fret in this.chordsPosition.Values)
-            {
-                if (fret > maxFret)
-                {
-                    maxFret = fret;
-                }
-            }
-
-            if(this.firstFret == 0)
-            {
-                this.firstFret = 1;
-            }
-
-            this.length = maxFret - this.firstFret + 1;
+                [1] = 0,
+                [2] = 0,
+                [3] = 0,
+                [4] = 2,
+                [5] = 2,
+                [6] = 0
+            };
+            bare = null;
+            firstFret = 1;
+            length = 2;
         }
-        public Chord(string name, Dictionary<int, int> chordsPosition, int bare)
+        public Chord(string name, Dictionary<int, int?> chordsPosition) : this(name, chordsPosition, null)
+        {
+            if(firstFret == 0)
+            {
+                firstFret = 1;
+                length -= 1;
+            }
+        }
+        public Chord(string name, Dictionary<int, int?> chordsPosition, int? bare) 
         {
             this.name = name;
             this.chordsPosition = chordsPosition;
             this.bare = bare;
 
-            this.firstFret = this.chordsPosition[1];
-            foreach (int fret in this.chordsPosition.Values)
+            firstFret = (int)chordsPosition[1];
+            foreach (int? fret in this.chordsPosition.Values)
             {
-                if (fret < this.firstFret)
+                if (fret < firstFret && fret != null)
                 {
-                    this.firstFret = fret;
-                }
-            }
-            int maxFret = this.chordsPosition[1];
-            foreach (int fret in this.chordsPosition.Values)
-            {
-                if (fret > maxFret)
-                {
-                    maxFret = fret;
+                    firstFret = (int)fret;
                 }
             }
 
-            this.length = maxFret - this.firstFret + 1;
+            int maxFret = (int)chordsPosition[1];
+            foreach (int? fret in this.chordsPosition.Values)
+            {
+                if (fret > maxFret && fret != null)
+                {
+                    maxFret = (int)fret;
+                }
+            }
+
+            length = maxFret - firstFret + 1;
         }
 
         // Getters and setters
 
         public string Name
         {
-            get { return this.name; }
+            get { return name; }
         }
 
         public int FirstFret
         {
-            get { return this.firstFret; }
+            get { return firstFret; }
         }
 
         public int Length
         {
-            get { return this.length; }
+            get { return length; }
         }
 
         //Functions
 
         public bool[,] construct()
         {
-            bool[,] position = new bool[6, this.length];
+            bool[,] position = new bool[6, length];
             for (int i = 0; i < 6; i++)
             {
-                for (int j = 0; j < this.length; j++)
+                for (int j = 0; j < length; j++)
                 {
                     position[i, j] = false;
                 }
@@ -103,13 +99,13 @@ namespace Project_A
             for (int i = 1; i <= 6; i++)
             {
 
-                if (this.chordsPosition[i] != 0)
+                if (chordsPosition[i] != 0 && chordsPosition[i] != null)
                 {
-                    position[i - 1, (this.chordsPosition[i] - this.firstFret)] = true;
+                    position[i - 1, (int)chordsPosition[i] - firstFret] = true;
                 }
             }
 
-            if (this.bare != null)
+            if (bare != null)
             {
                 for (int i = 0; i < bare; i++)
                 {
