@@ -1,0 +1,32 @@
+﻿<Page x:Class="Project_A.Pages.ChordsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Project_A.Pages"
+      mc:Ignorable="d"      
+      Title="ChordsPage"
+      Background="White" Height="704.04" Width="1280">
+
+
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="704.04" Width="1280">
+        <Rectangle HorizontalAlignment="Center" Height="5" Margin="0,340,50,0" Fill="Black" Stroke="Black" VerticalAlignment="Top" Width="1050"/>
+        <Rectangle HorizontalAlignment="Center" Height="5" Margin="0,380,50,0" Fill="Black" Stroke="Black" VerticalAlignment="Top" Width="1050"/>
+        <Rectangle HorizontalAlignment="Center" Height="5" Margin="0,420,50,0" Fill="Black" Stroke="Black" VerticalAlignment="Top" Width="1050"/>
+        <Rectangle HorizontalAlignment="Center" Height="5" Margin="0,460,50,0" Fill="Black" Stroke="Black" VerticalAlignment="Top" Width="1050"/>
+        <Rectangle HorizontalAlignment="Center" Height="5" Margin="0,500,50,0" Fill="Black" Stroke="Black" VerticalAlignment="Top" Width="1050"/>
+        <Rectangle HorizontalAlignment="Center" Height="5" Margin="0,540,50,0" Fill="Black" Stroke="Black" VerticalAlignment="Top" Width="1050"/>
+        <Label Content="6&#xD;&#xA;5&#xD;&#xA;4&#xD;&#xA;3&#xD;&#xA;2&#xD;&#xA;1&#xD;&#xA;" HorizontalAlignment="Left" Margin="48,313,0,0" VerticalAlignment="Top" Height="249" FontSize="30"/>
+        <Rectangle HorizontalAlignment="Center" Height="240" Margin="0,180,1095,0" Fill="Black" Stroke="Black" VerticalAlignment="Center" Width="5"/>
+        <Rectangle HorizontalAlignment="Center" Height="240" Margin="0,180,795,0" Fill="Black" Stroke="Black" VerticalAlignment="Center" Width="5"/>
+        <Rectangle HorizontalAlignment="Center" Height="240" Margin="0,180,495,0" Fill="Black" Stroke="Black" VerticalAlignment="Center" Width="5"/>
+        <Rectangle HorizontalAlignment="Center" Height="240" Margin="0,180,195,0" Fill="Black" Stroke="Black" VerticalAlignment="Center" Width="5"/>
+        <Rectangle HorizontalAlignment="Center" Height="240" Margin="0,180,-95,0" Fill="Black" Stroke="Black" VerticalAlignment="Center" Width="5"/>
+        <Rectangle HorizontalAlignment="Center" Height="240" Margin="0,180,-395,0" Fill="Black" Stroke="Black" VerticalAlignment="Center" Width="5"/>
+        <Rectangle HorizontalAlignment="Center" Height="240" Margin="0,180,-695,0" Fill="Black" Stroke="Black" VerticalAlignment="Center" Width="5"/>
+        <Rectangle HorizontalAlignment="Center" Height="240" Margin="0,180,-995,0" Fill="Black" Stroke="Black" VerticalAlignment="Center" Width="5"/>
+
+
+
+    </Grid>
+</Page>
