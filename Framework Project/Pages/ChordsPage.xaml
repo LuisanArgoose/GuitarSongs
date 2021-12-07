@@ -21,7 +21,7 @@
             <Rectangle HorizontalAlignment="Center" Height="5" Margin="0,0,0,100" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="600"/>
             <Rectangle HorizontalAlignment="Center" Height="5" Margin="0,0,0,60" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="600"/>
 
-            <Label Content="6&#xD;&#xA;5&#xD;&#xA;4&#xD;&#xA;3&#xD;&#xA;2&#xD;&#xA;1&#xD;&#xA;" HorizontalAlignment="Center" Margin="0,0,640,40" VerticalAlignment="Bottom" Height="250" FontSize="30"/>
+            <Label Content="1&#xD;&#xA;2&#xD;&#xA;3&#xD;&#xA;4&#xD;&#xA;5&#xD;&#xA;6&#xD;&#xA;" HorizontalAlignment="Center" Margin="0,0,640,40" VerticalAlignment="Bottom" Height="250" FontSize="30"/>
 
             <Rectangle HorizontalAlignment="Center" Height="240" Margin="0,0,600,40" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="5"/>
             <Rectangle HorizontalAlignment="Center" Height="240" Margin="0,0,300,40" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="5"/>
@@ -67,11 +67,10 @@
             <Ellipse Fill="Black" HorizontalAlignment="Center" Height="22" Margin="450,0,0,52" Stroke="Black" VerticalAlignment="Bottom" Width="22" Visibility="{Binding Path = Position6[3]}"/>
 
 
-            <Label Content="{Binding Path = FreatCount[0]}" HorizontalAlignment="Center" Margin="0,0,600,280" VerticalAlignment="Bottom" Height="47" FontSize="30"/>
-            <Label Content="{Binding Path = FreatCount[1]}" HorizontalAlignment="Center" Margin="0,0,300,280" VerticalAlignment="Bottom" Height="47" FontSize="30"/>
-            <Label Content="{Binding Path = FreatCount[2]}" HorizontalAlignment="Center" Margin="0,0,0,280" VerticalAlignment="Bottom" Height="47" FontSize="30"/>
-            <Label Content="{Binding Path = FreatCount[3]}" HorizontalAlignment="Center" Margin="300,0,0,280" VerticalAlignment="Bottom" Height="47" FontSize="30"/>
-            <Label Content="{Binding Path = FreatCount[4]}" HorizontalAlignment="Center" Margin="600,0,0,280" VerticalAlignment="Bottom" Height="47" FontSize="30"/>
+            <Label Content="{Binding Path = FreatCount[0]}" HorizontalAlignment="Center" Margin="0,0,450,280" VerticalAlignment="Bottom" Height="47" FontSize="30"/>
+            <Label Content="{Binding Path = FreatCount[1]}" HorizontalAlignment="Center" Margin="0,0,150,280" VerticalAlignment="Bottom" Height="47" FontSize="30"/>
+            <Label Content="{Binding Path = FreatCount[2]}" HorizontalAlignment="Center" Margin="150,0,0,280" VerticalAlignment="Bottom" Height="47" FontSize="30"/>
+            <Label Content="{Binding Path = FreatCount[3]}" HorizontalAlignment="Center" Margin="450,0,0,280" VerticalAlignment="Bottom" Height="47" FontSize="30"/>
         </Grid>
         <ListBox x:Name="Listing" HorizontalAlignment="Left" Height="651" Margin="10,10,0,0" VerticalAlignment="Top" Width="290" >
             <ListBox.ItemTemplate>

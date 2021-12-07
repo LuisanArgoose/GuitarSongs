@@ -26,7 +26,7 @@ namespace Project_A.Pages
 
             InitializeComponent();
 
-            PullChords();
+            //PullChords();
         }
         private void PullChords()
         {
@@ -55,7 +55,7 @@ namespace Project_A.Pages
     {
         public VisualChord(Chord Em)
         {
-            int temp = Em.FirstFret;
+            int temp = Em.FirstFret - 1;
             bool[,] head = Em.construct();
             Position1 = new Visibility[4];
             Position2 = new Visibility[4];
@@ -63,15 +63,10 @@ namespace Project_A.Pages
             Position4 = new Visibility[4];
             Position5 = new Visibility[4];
             Position6 = new Visibility[4];
-            FreatCount = new int[5];
-            for (int i = 0; i < 5; i++)
-            {
-                FreatCount[i] = i + temp;
-
-            }
+            FreatCount = new int[4];
             for (int i = 0; i < 4; i++)
             {
-                
+                FreatCount[i] = i + temp;
                 Position1[i] = Visibility.Collapsed;
                 Position2[i] = Visibility.Collapsed;
                 Position3[i] = Visibility.Collapsed;
