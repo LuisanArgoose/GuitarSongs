@@ -9,7 +9,7 @@ namespace Project_A
     public class Chord
     {
         private string name;
-        private Dictionary<int, int?> chordsPosition;
+        private Dictionary<int, int?> chordPosition;
         private int? bare;
         private int firstFret;
         private int length;
@@ -18,8 +18,8 @@ namespace Project_A
         // Constructor
         public Chord()
         {
-            this.name = "Em";
-            this.chordsPosition = new Dictionary<int, int?>
+            name = "Em";
+            chordPosition = new Dictionary<int, int?>
             {
                 [1] = 0,
                 [2] = 0,
@@ -43,11 +43,11 @@ namespace Project_A
         public Chord(string name, Dictionary<int, int?> chordsPosition, int? bare) 
         {
             this.name = name;
-            this.chordsPosition = chordsPosition;
+            this.chordPosition = chordsPosition;
             this.bare = bare;
 
             firstFret = (int)chordsPosition[1];
-            foreach (int? fret in this.chordsPosition.Values)
+            foreach (int? fret in this.chordPosition.Values)
             {
                 if (fret < firstFret && fret != null)
                 {
@@ -56,7 +56,7 @@ namespace Project_A
             }
 
             int maxFret = (int)chordsPosition[1];
-            foreach (int? fret in this.chordsPosition.Values)
+            foreach (int? fret in this.chordPosition.Values)
             {
                 if (fret > maxFret && fret != null)
                 {
@@ -79,13 +79,10 @@ namespace Project_A
             get { return position; }
             
         }
-        
-
         public int FirstFret
         {
             get { return firstFret; }
         }
-
         public int Length
         {
             get { return length; }
@@ -107,9 +104,9 @@ namespace Project_A
             for (int i = 1; i <= 6; i++)
             {
 
-                if (chordsPosition[i] != 0 && chordsPosition[i] != null)
+                if (chordPosition[i] != 0 && chordPosition[i] != null)
                 {
-                    position[i - 1, (int)chordsPosition[i] - firstFret] = true;
+                    position[i - 1, (int)chordPosition[i] - firstFret] = true;
                 }
             }
 
