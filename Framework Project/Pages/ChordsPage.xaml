@@ -71,6 +71,7 @@
             <Label Content="{Binding Path = FreatCount[1]}" HorizontalAlignment="Center" Margin="0,0,150,280" VerticalAlignment="Bottom" Height="47" FontSize="30"/>
             <Label Content="{Binding Path = FreatCount[2]}" HorizontalAlignment="Center" Margin="150,0,0,280" VerticalAlignment="Bottom" Height="47" FontSize="30"/>
             <Label Content="{Binding Path = FreatCount[3]}" HorizontalAlignment="Center" Margin="450,0,0,280" VerticalAlignment="Bottom" Height="47" FontSize="30"/>
+            
             <Label Content="{Binding Path = ChordName}" HorizontalAlignment="Center" Margin="265,0,265,310" VerticalAlignment="Bottom" Height="135" Width="156" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
         <ListBox x:Name="Listing" HorizontalAlignment="Left" Height="651" Margin="10,10,0,0" VerticalAlignment="Top" Width="290" >

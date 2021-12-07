@@ -101,17 +101,13 @@ namespace Project_A.Pages
                 }
             }
         }
-        private string ChordName { get; set; }
-        private int[] FreatCount { get; set; }
-        private Visibility[] Position1 { get; set; }
-        private Visibility[] Position2 { get; set; }
-        private Visibility[] Position3 { get; set; }
-        private Visibility[] Position4 { get; set; }
-        private Visibility[] Position5 { get; set; }
-        private Visibility[] Position6 { get; set; }
-
-        
-
-
+        public string ChordName { get; set; }
+        public int[] FreatCount { get; set; }
+        public Visibility[] Position1 { get; set; }
+        public Visibility[] Position2 { get; set; }
+        public Visibility[] Position3 { get; set; }
+        public Visibility[] Position4 { get; set; }
+        public Visibility[] Position5 { get; set; }
+        public Visibility[] Position6 { get; set; }
     }
 }
