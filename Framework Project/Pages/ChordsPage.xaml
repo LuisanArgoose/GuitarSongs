@@ -7,13 +7,13 @@
       mc:Ignorable="d"      
       Title="ChordsPage"
       Background="White" Height="704.04" Width="1280">
-      
+
 
 
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="704.04" Width="1280" >
 
 
-        <Grid x:Name="TapPanel" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="704" Width="1280" >
+        <Grid x:Name="TapPanel" Margin="426,0,168,70.04" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="327" Width="686" >
             <Rectangle HorizontalAlignment="Center" Height="5" Margin="0,0,0,260" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="600"/>
             <Rectangle HorizontalAlignment="Center" Height="5" Margin="0,0,0,220" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="600"/>
             <Rectangle HorizontalAlignment="Center" Height="5" Margin="0,0,0,180" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="600"/>
@@ -72,8 +72,18 @@
             <Label Content="{Binding Path = FreatCount[2]}" HorizontalAlignment="Center" Margin="0,0,0,280" VerticalAlignment="Bottom" Height="47" FontSize="30"/>
             <Label Content="{Binding Path = FreatCount[3]}" HorizontalAlignment="Center" Margin="300,0,0,280" VerticalAlignment="Bottom" Height="47" FontSize="30"/>
             <Label Content="{Binding Path = FreatCount[4]}" HorizontalAlignment="Center" Margin="600,0,0,280" VerticalAlignment="Bottom" Height="47" FontSize="30"/>
-            <Button Content="Button" HorizontalAlignment="Left" Margin="123,59,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         </Grid>
+        <ListBox HorizontalAlignment="Left" Height="651" Margin="10,10,0,0" VerticalAlignment="Top" Width="290" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+
+                    <Button Content="Button" Height="111" Width="254"  Margin="10,10,0,0"/>
+
+                </DataTemplate>
+
+            </ListBox.ItemTemplate>
+            s
+        </ListBox>
 
 
     </Grid>

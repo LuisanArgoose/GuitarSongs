@@ -24,7 +24,7 @@ namespace Project_A.Pages
         {
             InitializeComponent();
             WWDB db = new WWDB();
-            asdf.Content = db.get_version();
+            asdf.Content = db.TestConnection();
         }
     }
 }

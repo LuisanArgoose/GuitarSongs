@@ -29,15 +29,17 @@ namespace Project_A.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            VisualChord temp = new VisualChord();
+            Chord Em = new Chord();
+            VisualChord temp = new VisualChord(Em);
             DataContext = temp;
         }
     }
     public class VisualChord
     {
-        public VisualChord()
+        public VisualChord(Chord Em)
         {
-            int temp = 1;
+            int temp = Em.FirstFret;
+             
             Position1 = new Visibility[4];
             Position2 = new Visibility[4];
             Position3 = new Visibility[4];
