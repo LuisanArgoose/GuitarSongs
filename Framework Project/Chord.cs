@@ -87,10 +87,10 @@ namespace Project_A
 
         public bool[,] construct()
         {
-            bool[,] position = new bool[6, length];
+            bool[,] position = new bool[6, 4];
             for (int i = 0; i < 6; i++)
             {
-                for (int j = 0; j < length; j++)
+                for (int j = 0; j < 4; j++)
                 {
                     position[i, j] = false;
                 }
