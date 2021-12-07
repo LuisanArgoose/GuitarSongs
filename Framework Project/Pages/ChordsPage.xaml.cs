@@ -25,6 +25,7 @@ namespace Project_A.Pages
         {
 
             InitializeComponent();
+
             PullChords();
         }
         private void PullChords()
@@ -39,7 +40,7 @@ namespace Project_A.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string check = (sender as Button).Name;
+            string check = (sender as Button).Content as string;
             for (int i = 0; i < ActiveChords.Count; i++)
             {
                 if(check == ActiveChords[i].Name)
