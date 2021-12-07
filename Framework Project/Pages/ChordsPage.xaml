@@ -31,7 +31,7 @@
 
 
 
-            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="22" Margin="0,0,450,252" Stroke="Black" VerticalAlignment="Bottom" Width="22" Visibility="{Binding Path = Position1[1]}"/>
+            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="22" Margin="0,0,450,252" Stroke="Black" VerticalAlignment="Bottom" Width="22" Visibility="{Binding Path = Position1[0]}"/>
             <Ellipse Fill="Black" HorizontalAlignment="Center" Height="22" Margin="0,0,150,252" Stroke="Black" VerticalAlignment="Bottom" Width="22" Visibility="{Binding Path = Position1[1]}"/>
             <Ellipse Fill="Black" HorizontalAlignment="Center" Height="22" Margin="150,0,0,252" Stroke="Black" VerticalAlignment="Bottom" Width="22" Visibility="{Binding Path = Position1[2]}"/>
             <Ellipse Fill="Black" HorizontalAlignment="Center" Height="22" Margin="450,0,0,252" Stroke="Black" VerticalAlignment="Bottom" Width="22" Visibility="{Binding Path = Position1[3]}"/>
