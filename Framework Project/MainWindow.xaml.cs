@@ -24,7 +24,7 @@ namespace Project_A
         {
             InitializeComponent();
             //Пример переключения на страницу
-            rootFrame.Navigate(new Pages.StartPage());
+            rootFrame.Navigate(new Pages.ChordsPage());
         }
     }
 }

@@ -26,10 +26,20 @@ namespace Project_A.Pages
             InitializeComponent();
             
         }
+        private void PullChords()
+        {
+            WWDB db = new WWDB();
+            List<Chord> temp = db.GetChordsList();
+            for(int i = 0; i < temp.Count; i++)
+            {
+                Listing.Items.Add(temp[i]);
+            }
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Chord Em = new Chord();
+            var go = Listing.SelectedItem;
+            Chord Em = Listing.SelectedItem as Chord;
             VisualChord temp = new VisualChord(Em);
             DataContext = temp;
         }
@@ -39,7 +49,7 @@ namespace Project_A.Pages
         public VisualChord(Chord Em)
         {
             int temp = Em.FirstFret;
-             
+            bool[,] head = Em.construct();
             Position1 = new Visibility[4];
             Position2 = new Visibility[4];
             Position3 = new Visibility[4];
@@ -54,6 +64,7 @@ namespace Project_A.Pages
             }
             for (int i = 0; i < 4; i++)
             {
+                
                 Position1[i] = Visibility.Collapsed;
                 Position2[i] = Visibility.Collapsed;
                 Position3[i] = Visibility.Collapsed;
@@ -61,6 +72,30 @@ namespace Project_A.Pages
                 Position5[i] = Visibility.Collapsed;
                 Position6[i] = Visibility.Collapsed;
 
+                if (head[0, i])
+                {
+                    Position1[i] = Visibility.Visible;
+                }
+                if (head[1, i])
+                {
+                    Position2[i] = Visibility.Visible;
+                }
+                if (head[2, i])
+                {
+                    Position3[i] = Visibility.Visible;
+                }
+                if (head[3, i])
+                {
+                    Position4[i] = Visibility.Visible;
+                }
+                if (head[4, i])
+                {
+                    Position5[i] = Visibility.Visible;
+                }
+                if (head[5, i])
+                {
+                    Position6[i] = Visibility.Visible;
+                }
             }
         }
         public int[] FreatCount { get; set; }
