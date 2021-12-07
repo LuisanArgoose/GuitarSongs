@@ -24,7 +24,8 @@ namespace Project_A.Pages
         {
             InitializeComponent();
             WWDB db = new WWDB();
-            asdf.Content = db.TestConnection();
+            List<Chord> temp = db.GetChordsList();
+            asdf.Content = temp[3].Name;
         }
     }
 }
