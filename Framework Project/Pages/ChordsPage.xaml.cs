@@ -20,6 +20,7 @@ namespace Project_A.Pages
     /// </summary>
     public partial class ChordsPage : Page
     {
+        List<Chord> ActiveChords;
         public ChordsPage()
         {
 
@@ -29,17 +30,18 @@ namespace Project_A.Pages
         private void PullChords()
         {
             WWDB db = new WWDB();
-            List<Chord> temp = db.GetChordsList();
-            for(int i = 0; i < temp.Count; i++)
+            ActiveChords = db.GetChordsList();
+            for(int i = 0; i < ActiveChords.Count; i++)
             {
-                Listing.Items.Add(temp[i]);
+                ActiveChords[i].Position = i;
+                Listing.Items.Add(ActiveChords[i]);
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var go = Listing.SelectedItem;
-            Chord Em = Listing.SelectedItem as Chord;
+            
+            Chord Em = ActiveChords[Convert.ToInt32((sender as Button).Name)];
             VisualChord temp = new VisualChord(Em);
             DataContext = temp;
         }

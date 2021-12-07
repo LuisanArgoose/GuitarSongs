@@ -76,7 +76,7 @@
         <ListBox x:Name="Listing" HorizontalAlignment="Left" Height="651" Margin="10,10,0,0" VerticalAlignment="Top" Width="290" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Path = Name}" Height="111" Width="254"  Margin="10,10,0,0" Click="Button_Click"/>
+                    <Button x:Name="{Binding Path = Position}" Content="{Binding Path = Name}" Height="111" Width="254"  Margin="10,10,0,0" Click="Button_Click"/>
 
                 </DataTemplate>
 
