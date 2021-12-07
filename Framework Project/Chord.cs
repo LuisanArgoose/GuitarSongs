@@ -13,7 +13,6 @@ namespace Project_A
         private int? bare;
         private int firstFret;
         private int length;
-        private string position;
 
         // Constructor
         public Chord()
@@ -72,12 +71,6 @@ namespace Project_A
         public string Name
         {
             get { return name; }
-        }
-        public string Position
-        {
-            set { position = value; }
-            get { return position; }
-            
         }
         public int FirstFret
         {

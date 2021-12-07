@@ -33,15 +33,21 @@ namespace Project_A.Pages
             ActiveChords = db.GetChordsList();
             for(int i = 0; i < ActiveChords.Count; i++)
             {
-                ActiveChords[i].Position = "_" + i;
                 Listing.Items.Add(ActiveChords[i]);
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Chord Em = ActiveChords[Convert.ToInt32((sender as Button).Name.Split('_')[0])];
-            DataContext = new VisualChord(Em);
+            string check = (sender as Button).Name;
+            for (int i = 0; i < ActiveChords.Count; i++)
+            {
+                if(check == ActiveChords[i].Name)
+                {
+                    DataContext = new VisualChord(ActiveChords[i]);
+                    break;
+                }
+            }
         }
     }
     public class VisualChord
