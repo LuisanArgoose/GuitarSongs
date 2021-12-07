@@ -24,7 +24,7 @@ namespace Project_A.Pages
         {
 
             InitializeComponent();
-            
+            PullChords();
         }
         private void PullChords()
         {
