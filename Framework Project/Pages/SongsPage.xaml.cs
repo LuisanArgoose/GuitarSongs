@@ -24,7 +24,11 @@ namespace Project_A.Pages
         public SongsPage()
         {
             InitializeComponent();
-
+            for(int i = 0; i < 5; i++)
+            {
+                Chord temp = new Chord();
+                Chords.Items.Add(new VisualChord(temp));
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
