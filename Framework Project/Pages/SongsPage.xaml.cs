@@ -20,11 +20,17 @@ namespace Project_A.Pages
     /// </summary>
     public partial class SongsPage : Page
     {
+        ParsSong Tool;
         WWDB db = new WWDB();
         List<Dictionary<string, string>> songslist;
         public SongsPage()
         {
             InitializeComponent();
+            for(int i = 0; i < 5; i++)
+            {
+                Chord temp = new Chord();
+                Chords.Items.Add(new VisualChord(temp));
+            }
 
             songslist = db.GetSongsList();
             for (int i = 0; i < songslist.Count; i++)
@@ -36,11 +42,25 @@ namespace Project_A.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //(sender as Button).Parent;
-            //var thisbut = this;
-            //var itemid = (sender as ListBox).SelectedItem;
-            //DataContext = itemid;
-            
+            Listing.Items.Clear();
+            Tool = new ParsSong(Search.Text);
+            for (int i = 0; i < Tool.Songs.Count; i++)
+            {
+                Listing.Items.Add(Tool.Songs[i]);
+            }
+        }
+        private void Open_Song(object sender, RoutedEventArgs e)
+        {
+            string check = (sender as Button).Content as string;
+            for (int i = 0; i < Tool.Songs.Count; i++)
+            {
+                if (check == Tool.Songs[i].Full_info)
+                {
+                    SongInfo.DataContext = Tool.Songs[i];
+                    SongText.DataContext = Tool.Songs[i];
+                    break;
+                }
+            }
         }
     }
 }

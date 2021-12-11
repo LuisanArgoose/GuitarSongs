@@ -80,10 +80,7 @@
                     <Button Content="{Binding Path = Name}" Height="111" Width="254"  Margin="10,10,0,0" Click="Button_Click"/>
 
                 </DataTemplate>
-
             </ListBox.ItemTemplate>
         </ListBox>
-
-
     </Grid>
 </Page>

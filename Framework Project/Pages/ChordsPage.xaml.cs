@@ -24,7 +24,6 @@ namespace Project_A.Pages
         public ChordsPage()
         {
             InitializeComponent();
-
             PullChords();
         }
         private void PullChords()
