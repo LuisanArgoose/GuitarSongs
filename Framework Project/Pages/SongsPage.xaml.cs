@@ -37,6 +37,7 @@ namespace Project_A.Pages
             Tool = new ParsSong(Search.Text);
             for (int i = 0; i < Tool.Songs.Count; i++)
             {
+                
                 Listing.Items.Add(Tool.Songs[i]);
             }
         }
@@ -45,8 +46,32 @@ namespace Project_A.Pages
             string check = (sender as Button).Content as string;
             for (int i = 0; i < Tool.Songs.Count; i++)
             {
+                
                 if (check == Tool.Songs[i].Full_info)
                 {
+                    Tool.Songs[i].Get_Song();
+                    WWDB db = new WWDB();
+                    List<Chord> ActiveChords = db.GetChordsList();
+                    List<string> NameChords = new List<string>();
+                    for (int j = 0; j < ActiveChords.Count; j++)
+                    {
+                        NameChords[j] = ActiveChords[j].Name;
+                    }
+
+                    for (int j = 0; j < Tool.Songs[i].Chords.Count; j++)
+                    {
+                        if (NameChords.Contains(Tool.Songs[i].Chords[j])){
+                            for (int f = 0; f < ActiveChords.Count; f++)
+                            {
+                                if(ActiveChords[f].Name == Tool.Songs[i].Chords[j])
+                                {
+                                    Chords.Items.Add(new VisualChord(ActiveChords[f]));
+                                }
+                            }
+                            
+                        }
+                        
+                    }
                     SongInfo.DataContext = Tool.Songs[i];
                     SongText.DataContext = Tool.Songs[i];
                     break;
