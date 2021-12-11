@@ -30,14 +30,12 @@ namespace Project_A.Pages
                 Chords.Items.Add(new VisualChord(temp));
             }
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Listing.Items.Clear();
             Tool = new ParsSong(Search.Text);
             for (int i = 0; i < Tool.Songs.Count; i++)
             {
-                
                 Listing.Items.Add(Tool.Songs[i]);
             }
         }
@@ -46,7 +44,6 @@ namespace Project_A.Pages
             string check = (sender as Button).Content as string;
             for (int i = 0; i < Tool.Songs.Count; i++)
             {
-                
                 if (check == Tool.Songs[i].Full_info)
                 {
                     Tool.Songs[i].Get_Song();
@@ -57,7 +54,6 @@ namespace Project_A.Pages
                     {
                         NameChords[j] = ActiveChords[j].Name;
                     }
-
                     for (int j = 0; j < Tool.Songs[i].Chords.Count; j++)
                     {
                         if (NameChords.Contains(Tool.Songs[i].Chords[j])){
@@ -67,10 +63,8 @@ namespace Project_A.Pages
                                 {
                                     Chords.Items.Add(new VisualChord(ActiveChords[f]));
                                 }
-                            }
-                            
+                            } 
                         }
-                        
                     }
                     SongInfo.DataContext = Tool.Songs[i];
                     SongText.DataContext = Tool.Songs[i];
