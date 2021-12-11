@@ -23,7 +23,6 @@ namespace Project_A.Pages
         List<Chord> ActiveChords;
         public ChordsPage()
         {
-
             InitializeComponent();
 
             PullChords();

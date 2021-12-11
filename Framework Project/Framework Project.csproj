@@ -118,6 +118,9 @@
     <Compile Include="Pages\ChordsPage.xaml.cs">
       <DependentUpon>ChordsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SongsPage.xaml.cs">
+      <DependentUpon>SongsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WWDB.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -134,6 +137,10 @@
     <Page Include="Pages\ChordsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SongsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\StartPage.xaml">
       <SubType>Designer</SubType>

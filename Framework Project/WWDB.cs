@@ -81,5 +81,45 @@ namespace Project_A
 
             return returnList;
         }
+
+        public List<Dictionary<string, string>> GetSongsList()
+        {
+            List<Dictionary<string, string>> songslist = new List<Dictionary<string, string>>();
+
+            string com = "select name, artist from songs";
+            var cmd = new NpgsqlCommand(com, con);
+            NpgsqlDataReader Reader = cmd.ExecuteReader();
+
+            while (Reader.Read())
+            {
+                songslist.Add( new Dictionary<string, string> { ["name"] = Reader.GetString(0), ["artist"] = Reader.GetString(1) });
+            }
+
+            return songslist;
+        }
+        public string GetSongData(int id)
+        {
+            string songdata = "Данных нет";
+            string com = string.Format("select songdata from songs where id = {0}", id);
+            var cmd = new NpgsqlCommand(com, con);
+            NpgsqlDataReader Reader = cmd.ExecuteReader();
+            while (Reader.Read())
+            {
+                songdata = Reader[0].ToString();
+            }
+            return songdata;
+        }
+        public string GetSongData(string name, string artist)
+        {
+            string songdata = "Данных нет";
+            string com = string.Format("select songdata from songs where name = '{0}' and artist = '{1}'", name, artist);
+            var cmd = new NpgsqlCommand(com, con);
+            NpgsqlDataReader Reader = cmd.ExecuteReader();
+            while (Reader.Read())
+            {
+                songdata = Reader[0].ToString();
+            }
+            return songdata;
+        }
     }
 }
