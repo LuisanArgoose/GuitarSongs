@@ -21,23 +21,9 @@ namespace Project_A.Pages
     public partial class SongsPage : Page
     {
         ParsSong Tool;
-        WWDB db = new WWDB();
-        List<Dictionary<string, string>> songslist;
         public SongsPage()
         {
             InitializeComponent();
-            for(int i = 0; i < 5; i++)
-            {
-                Chord temp = new Chord();
-                Chords.Items.Add(new VisualChord(temp));
-            }
-
-            songslist = db.GetSongsList();
-            for (int i = 0; i < songslist.Count; i++)
-            {
-                string resstring = string.Format("Название песни: {0}{1}{0}\nИсполнитель: {0}{2}{0}", '"', songslist[i]["name"], songslist[i]["artist"]);
-                Listing.Items.Add(resstring);
-            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -51,6 +37,7 @@ namespace Project_A.Pages
         }
         private void Open_Song(object sender, RoutedEventArgs e)
         {
+            Chords.Items.Clear();
             string check = (sender as Button).Content as string;
             for (int i = 0; i < Tool.Songs.Count; i++)
             {
@@ -62,7 +49,7 @@ namespace Project_A.Pages
                     List<string> NameChords = new List<string>();
                     for (int j = 0; j < ActiveChords.Count; j++)
                     {
-                        NameChords[j] = ActiveChords[j].Name;
+                        NameChords.Add( ActiveChords[j].Name);
                     }
                     for (int j = 0; j < Tool.Songs[i].Chords.Count; j++)
                     {
