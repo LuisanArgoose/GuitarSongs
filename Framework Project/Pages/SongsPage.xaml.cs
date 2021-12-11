@@ -69,5 +69,15 @@ namespace Project_A.Pages
                 }
             }
         }
+
+        private void Download(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Remove(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

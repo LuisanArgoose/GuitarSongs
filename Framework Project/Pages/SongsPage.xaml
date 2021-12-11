@@ -12,11 +12,18 @@
         <ListBox x:Name="Listing" HorizontalAlignment="Left" Height="610" Margin="10,51,0,0" VerticalAlignment="Top" Width="290" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Path = Full_info}" Height="40" Width="255"  Margin="1,1,0,0" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="Open_Song"/>
+                    <Button Content="{Binding Path = Full_info}" Height="40" Width="255"  Margin="1,1,0,0" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="Open_Song">
 
+                    </Button>
                 </DataTemplate>
+                
             </ListBox.ItemTemplate>
-
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Сохранить" Click="Download" ></MenuItem>
+                    <MenuItem Header="Удалить" Click="Remove" ></MenuItem>
+                </ContextMenu>
+            </ListBox.ContextMenu>
         </ListBox>
 
         <TextBox x:Name="Search" HorizontalAlignment="Left" Height="36" Margin="10,10,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="195" FontSize="20"/>
