@@ -16,7 +16,7 @@
 
                     </Button>
                 </DataTemplate>
-                
+
             </ListBox.ItemTemplate>
             <ListBox.ContextMenu>
                 <ContextMenu>
@@ -98,5 +98,19 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Button Content="Скролл" ContentStringFormat="фцв" HorizontalAlignment="Left" Margin="810,10,0,0" VerticalAlignment="Top" Width="90" Height="36" Click="Scroll_Click" FontSize="20"/>
+        <Button Content="Нескролл" ContentStringFormat="фцв" HorizontalAlignment="Left" Margin="638,10,0,0" VerticalAlignment="Top" Width="93" Height="36" Click="Unscroll_Click" FontSize="20"/>
+        <Grid Height="36" Margin="731,10,470,654">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="20" />
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="SpeedBox" FontSize="25" Grid.Column="0" Text="5" TextChanged="SpeedBox_TextChanged" Margin="0,0,0,0"/>
+            <StackPanel Grid.Column="1" Orientation="Vertical">
+                <Button FontSize="13" Height="18" Click="Plus_click" Content="↑"/>
+                <Button FontSize="13" Height="18" Click="Min_click" Content="↓"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

@@ -21,6 +21,7 @@ namespace Project_A.Pages
     public partial class SongsPage : Page
     {
         ParsSong Tool;
+        bool is_scrolling;
         public SongsPage()
         {
             InitializeComponent();
@@ -35,8 +36,39 @@ namespace Project_A.Pages
                 Listing.Items.Add(Tool.Songs[i]);
             }
         }
+        private async Task ScrollDown()
+        {
+            for (var i = SongText.ContentVerticalOffset; i < SongText.ScrollableHeight; i++)
+            {
+                if (is_scrolling)
+                {
+                    SongText.ScrollToVerticalOffset(i);
+                    await Task.Delay(500-(int.Parse(SpeedBox.Text)-1)*50);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+        private async void Scroll_Click(object sender, RoutedEventArgs e)
+        {
+            if (!is_scrolling)
+            {
+                is_scrolling = true;
+                await ScrollDown();
+            }
+        }
+
+        private void Unscroll_Click(object sender, RoutedEventArgs e)
+        {
+            is_scrolling = false;
+        }
+
         private void Open_Song(object sender, RoutedEventArgs e)
         {
+            is_scrolling = false;
             Chords.Items.Clear();
             string check = (sender as Button).Content as string;
             for (int i = 0; i < Tool.Songs.Count; i++)
@@ -78,6 +110,36 @@ namespace Project_A.Pages
         private void Remove(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Plus_click(object sender, RoutedEventArgs e)
+        {
+            SpeedBox.Text = (int.Parse(SpeedBox.Text) + 1).ToString();
+        }
+        private void Min_click(object sender, RoutedEventArgs e)
+        {
+            SpeedBox.Text = (int.Parse(SpeedBox.Text) - 1).ToString();
+        }
+
+        private void SpeedBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            foreach(char Char in SpeedBox.Text)
+            {
+                if (!char.IsDigit(Char))
+                {
+                    SpeedBox.Text = "5";
+                    break;
+                }
+            }
+
+            if(int.Parse(SpeedBox.Text) > 10)
+            {
+                SpeedBox.Text = "10";
+            }
+            else if (int.Parse(SpeedBox.Text) < 0)
+            {
+                SpeedBox.Text = "0";
+            }
         }
     }
 }
