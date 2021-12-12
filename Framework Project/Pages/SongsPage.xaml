@@ -87,16 +87,17 @@
                         <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="150,0,0,17" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position6[3]}"/>
 
 
-                        <Label Content="{Binding Path = FreatCount[0]}" HorizontalAlignment="Center" Margin="0,0,150,80" VerticalAlignment="Bottom" Height="15" FontSize="15"/>
-                        <Label Content="{Binding Path = FreatCount[1]}" HorizontalAlignment="Center" Margin="0,0,50,80" VerticalAlignment="Bottom" Height="15" FontSize="15"/>
-                        <Label Content="{Binding Path = FreatCount[2]}" HorizontalAlignment="Center" Margin="50,0,0,80" VerticalAlignment="Bottom" Height="15" FontSize="15"/>
-                        <Label Content="{Binding Path = FreatCount[3]}" HorizontalAlignment="Center" Margin="150,0,0,80" VerticalAlignment="Bottom" Height="15" FontSize="15"/>
+                        <Label Content="{Binding Path = FreatCount[0]}" HorizontalAlignment="Center" Margin="0,0,150,80" VerticalAlignment="Bottom" Height="25" FontSize="12"/>
+                        <Label Content="{Binding Path = FreatCount[1]}" HorizontalAlignment="Center" Margin="0,0,50,80" VerticalAlignment="Bottom" Height="25" FontSize="12"/>
+                        <Label Content="{Binding Path = FreatCount[2]}" HorizontalAlignment="Center" Margin="50,0,0,80" VerticalAlignment="Bottom" Height="25" FontSize="12"/>
+                        <Label Content="{Binding Path = FreatCount[3]}" HorizontalAlignment="Center" Margin="150,0,0,80" VerticalAlignment="Bottom" Height="25" FontSize="12"/>
 
                         <Label Content="{Binding Path = ChordName}" HorizontalAlignment="Center" Margin="84,0,85,95" VerticalAlignment="Bottom" Height="46" Width="156" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </Grid>
 
                 </DataTemplate>
             </ListBox.ItemTemplate>
+            b
         </ListBox>
         <Button Content="Скролл" ContentStringFormat="фцв" HorizontalAlignment="Left" Margin="810,10,0,0" VerticalAlignment="Top" Width="90" Height="36" Click="Scroll_Click" FontSize="20"/>
         <Button Content="Нескролл" ContentStringFormat="фцв" HorizontalAlignment="Left" Margin="638,10,0,0" VerticalAlignment="Top" Width="93" Height="36" Click="Unscroll_Click" FontSize="20"/>
