@@ -97,7 +97,7 @@
 
                 </DataTemplate>
             </ListBox.ItemTemplate>
-            b
+            
         </ListBox>
     </Grid>
 </Page>
