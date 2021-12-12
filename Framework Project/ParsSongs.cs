@@ -102,6 +102,7 @@ namespace Project_A
                         }
                         byte[] bytes = Encoding.Default.GetBytes(text);
                         Text = Encoding.UTF8.GetString(bytes);
+                        Text += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 
 
                     }
