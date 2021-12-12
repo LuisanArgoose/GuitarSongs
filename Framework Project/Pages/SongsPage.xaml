@@ -97,7 +97,6 @@
 
                 </DataTemplate>
             </ListBox.ItemTemplate>
-            b
         </ListBox>
         <Button Content="Скролл" ContentStringFormat="фцв" HorizontalAlignment="Left" Margin="810,10,0,0" VerticalAlignment="Top" Width="90" Height="36" Click="Scroll_Click" FontSize="20"/>
         <Button Content="Нескролл" ContentStringFormat="фцв" HorizontalAlignment="Left" Margin="638,10,0,0" VerticalAlignment="Top" Width="93" Height="36" Click="Unscroll_Click" FontSize="20"/>
