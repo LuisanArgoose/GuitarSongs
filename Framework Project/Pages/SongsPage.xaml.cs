@@ -73,7 +73,7 @@ namespace Project_A.Pages
             string check = (sender as Button).Content as string;
             for (int i = 0; i < Tool.Songs.Count; i++)
             {
-                if (check == Tool.Songs[i].Full_info)
+                if (check == Tool.Songs[i].Full_info && Tool.Songs[i].Chords != null)
                 {
                     Tool.Songs[i].Get_Song();
                     WWDB db = new WWDB();
