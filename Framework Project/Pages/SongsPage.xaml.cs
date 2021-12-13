@@ -131,20 +131,22 @@ namespace Project_A.Pages
         {
             foreach(char Char in SpeedBox.Text)
             {
-                if (!char.IsDigit(Char))
+                if (!char.IsDigit(Char) && Char != '-')
                 {
                     SpeedBox.Text = "5";
                     break;
                 }
             }
 
-            if(int.Parse(SpeedBox.Text) > 10)
-            {
-                SpeedBox.Text = "10";
-            }
-            else if (int.Parse(SpeedBox.Text) < 0)
-            {
-                SpeedBox.Text = "0";
+            if (SpeedBox.Text != null){
+                if (int.Parse(SpeedBox.Text) > 10)
+                {
+                    SpeedBox.Text = "10";
+                }
+                else if (int.Parse(SpeedBox.Text) < 0)
+                {
+                    SpeedBox.Text = "0";
+                }
             }
         }
     }

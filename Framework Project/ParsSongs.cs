@@ -19,12 +19,11 @@ namespace Project_A
         }
         private string Search { get; set; }
         public List<Song> Songs { get; set; }
+        private bool Connection { get; set; }
         public void Get_Songs(string Song)
         {
             if (Search != Song)
             {
-
-
                 string url = "http://amdm.ru/search/?q=" + Song;
                 List<string> SongLinks = new List<string>();
                 Songs = new List<Song>();
@@ -53,10 +52,12 @@ namespace Project_A
                             Songs[i].Full_info = Songs[i].Name + "\n" + Songs[i].Author;
                         }
                     }
+                    Connection = true;
                 }
                 catch
                 {
-
+                    Connection = false;
+                    throw new Exception("There is no Internet connection");
                 }
             }
         }
