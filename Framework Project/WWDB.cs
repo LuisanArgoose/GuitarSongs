@@ -102,30 +102,41 @@ namespace Project_A
             }
             Reader1.Close();
 
-            string com2 = $"Select chord from songs-chords where song = {song_id}";
+            string com2 = $"Select chord from { '"' }songs-chords{ '"' } where song = {song_id}";
 
             var cmd2 = new NpgsqlCommand(com2, con);
             NpgsqlDataReader Reader2 = cmd2.ExecuteReader();
+
+            List<string> chords = new List<string>();
             while (Reader2.Read())
             {
-                song.Chords.Add(Reader2.GetString(0));
+                chords.Add(Reader2.GetString(0));
             }
             Reader2.Close();
+
+            song.Chords = chords;
 
             return song;
         }
 
-        public List<Dictionary<string, string>> GetSongsList()
+        public List<Song> GetSongsList()
         {
-            List<Dictionary<string, string>> songslist = new List<Dictionary<string, string>>();
+            List<string> songsnames = new List<string>();
+            List<Song> songslist = new List<Song>();
 
-            string com = "select name, artist from songs";
+            string com = "select name from songs";
             var cmd = new NpgsqlCommand(com, con);
             NpgsqlDataReader Reader = cmd.ExecuteReader();
 
             while (Reader.Read())
             {
-                songslist.Add( new Dictionary<string, string> { ["name"] = Reader.GetString(0), ["artist"] = Reader.GetString(1) });
+                songsnames.Add(Reader.GetString(0));
+            }
+            Reader.Close();
+
+            foreach(string songname in songsnames)
+            {
+                songslist.Add(GetSongDB(songname));
             }
 
             return songslist;
@@ -137,7 +148,7 @@ namespace Project_A
             var cmd1 = new NpgsqlCommand(com1, con);
             int song_id = (int)cmd1.ExecuteScalar();
 
-            string com2 = $"Insert into " + '"' + "songs-chords" + '"' +" values ";
+            string com2 = $"Insert into { '"' }songs-chords{ '"' } values ";
             foreach (string chord in song.Chords)
             {
                 com2 += $"({song_id}, '{chord}'), ";

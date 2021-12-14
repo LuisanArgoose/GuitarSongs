@@ -23,12 +23,8 @@ namespace Project_A.Pages
         ParsSong Tool;
         bool is_scrolling;
         WWDB db = new WWDB();
-        public SongsPage()
-        {
-            InitializeComponent();
-        }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void output_db_songs()
         {
             Listing.Items.Clear();
             Tool = new ParsSong(Search.Text);
@@ -36,6 +32,37 @@ namespace Project_A.Pages
             {
                 Listing.Items.Add(Tool.Songs[i]);
             }
+        }
+
+        public SongsPage()
+        {
+            InitializeComponent();
+            output_db_songs();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (Search.Text == "")
+                {
+                    output_db_songs();
+                }
+                else
+                {
+                    Listing.Items.Clear();
+                    Tool = new ParsSong(Search.Text);
+                    for (int i = 0; i < Tool.Songs.Count; i++)
+                    {
+                        Listing.Items.Add(Tool.Songs[i]);
+                    }
+                }
+            }
+            catch
+            {
+                output_db_songs();
+            }
+            
         }
         private async Task ScrollDown()
         {
