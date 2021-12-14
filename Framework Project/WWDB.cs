@@ -82,6 +82,39 @@ namespace Project_A
             return returnList;
         }
 
+        public Song GetSongDB(string SongName)
+        {
+            Song song = new Song();
+            int song_id = 0;
+
+            string com1 = $"Select id, artist, songdata, url from songs where name = '{SongName}'";
+
+            var cmd1 = new NpgsqlCommand(com1, con);
+            NpgsqlDataReader Reader1 = cmd1.ExecuteReader();
+            while (Reader1.Read())
+            {
+                song_id = Reader1.GetInt16(0);
+                song.Name = SongName;
+                song.Author = Reader1.GetString(1);
+                song.Text = Reader1.GetString(2);
+                song.Url = Reader1.GetString(3);
+                song.Full_info = song.Name + "\n" + song.Author;
+            }
+            Reader1.Close();
+
+            string com2 = $"Select chord from songs-chords where song = {song_id}";
+
+            var cmd2 = new NpgsqlCommand(com2, con);
+            NpgsqlDataReader Reader2 = cmd2.ExecuteReader();
+            while (Reader2.Read())
+            {
+                song.Chords.Add(Reader2.GetString(0));
+            }
+            Reader2.Close();
+
+            return song;
+        }
+
         public List<Dictionary<string, string>> GetSongsList()
         {
             List<Dictionary<string, string>> songslist = new List<Dictionary<string, string>>();
@@ -97,29 +130,24 @@ namespace Project_A
 
             return songslist;
         }
-        public string GetSongData(int id)
+
+        public void PushSongToDB(Song song)
         {
-            string songdata = "Данных нет";
-            string com = string.Format("select songdata from songs where id = {0}", id);
-            var cmd = new NpgsqlCommand(com, con);
-            NpgsqlDataReader Reader = cmd.ExecuteReader();
-            while (Reader.Read())
+            string com1 = $"Insert into songs (name, artist, songdata, url) values ('{song.Name}', '{song.Author}', '{song.Text}', '{song.Url}') returning id";
+            var cmd1 = new NpgsqlCommand(com1, con);
+            int song_id = (int)cmd1.ExecuteScalar();
+
+            string com2 = $"Insert into " + '"' + "songs-chords" + '"' +" values ";
+            foreach (string chord in song.Chords)
             {
-                songdata = Reader[0].ToString();
+                com2 += $"({song_id}, '{chord}'), ";
             }
-            return songdata;
-        }
-        public string GetSongData(string name, string artist)
-        {
-            string songdata = "Данных нет";
-            string com = string.Format("select songdata from songs where name = '{0}' and artist = '{1}'", name, artist);
-            var cmd = new NpgsqlCommand(com, con);
-            NpgsqlDataReader Reader = cmd.ExecuteReader();
-            while (Reader.Read())
-            {
-                songdata = Reader[0].ToString();
-            }
-            return songdata;
+            char[] temp_com2 = com2.ToCharArray();
+            temp_com2[temp_com2.Length - 2] = ';';
+            com2 = new string(temp_com2);
+
+            var cmd2 = new NpgsqlCommand(com2, con);
+            cmd2.ExecuteNonQuery();
         }
     }
 }

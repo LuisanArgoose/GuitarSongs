@@ -22,6 +22,7 @@ namespace Project_A.Pages
     {
         ParsSong Tool;
         bool is_scrolling;
+        WWDB db = new WWDB();
         public SongsPage()
         {
             InitializeComponent();
@@ -78,9 +79,6 @@ namespace Project_A.Pages
                     Tool.Songs[i].Get_Song();
                     if (Tool.Songs[i].Chords != null)
                     {
-
-
-                        WWDB db = new WWDB();
                         List<Chord> ActiveChords = db.GetChordsList();
                         List<string> NameChords = new List<string>();
                         for (int j = 0; j < ActiveChords.Count; j++)
@@ -110,12 +108,13 @@ namespace Project_A.Pages
 
         private void Download(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Remove(object sender, RoutedEventArgs e)
-        {
-
+            MenuItem menuItem = (MenuItem)e.Source;
+            Song song = (Song)menuItem.DataContext;
+            if (song.Chords == null)
+            {
+                song.Get_Song();
+            }
+            db.PushSongToDB(song);
         }
 
         private void Plus_click(object sender, RoutedEventArgs e)
