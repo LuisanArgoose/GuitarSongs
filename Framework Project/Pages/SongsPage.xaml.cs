@@ -27,10 +27,10 @@ namespace Project_A.Pages
         private void output_db_songs()
         {
             Listing.Items.Clear();
-            Tool = new ParsSong(Search.Text);
-            for (int i = 0; i < Tool.Songs.Count; i++)
+            List<Song> songs = db.GetSongsList();
+            foreach(Song song in songs)
             {
-                Listing.Items.Add(Tool.Songs[i]);
+                Listing.Items.Add(song);
             }
         }
 
