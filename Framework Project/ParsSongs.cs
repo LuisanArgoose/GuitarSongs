@@ -17,6 +17,10 @@ namespace Project_A
             Get_Songs(Song);
             Search = Song;
         }
+        public ParsSong(List<Song> Songs_in_db)
+        {
+            Songs = Songs_in_db;
+        }
         private string Search { get; set; }
         public List<Song> Songs { get; set; }
         private bool Connection { get; set; }

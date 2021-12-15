@@ -32,6 +32,7 @@ namespace Project_A.Pages
             {
                 Listing.Items.Add(song);
             }
+            Tool = new ParsSong(songs);
         }
 
         public SongsPage()
