@@ -6,110 +6,122 @@
       xmlns:local="clr-namespace:Project_A.Pages"
       mc:Ignorable="d" 
       Title="SongsPage"
-      Background="White" Height="700" Width="1280">
+      Background="White"
+      MinHeight="640"
+      MinWidth="1137">
 
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="700" Width="1280" >
-        <ListBox x:Name="Listing" HorizontalAlignment="Left" Height="610" Margin="10,51,0,0" VerticalAlignment="Top" Width="290" >
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Button Content="{Binding Path = Full_info}" Height="40" Width="255"  Margin="1,1,0,0" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="Open_Song">
-                        <Button.ContextMenu>
-                            <ContextMenu>
-                                <MenuItem Header="Сохранить" Click="Download" ></MenuItem>
-                            </ContextMenu>
-                        </Button.ContextMenu>
-                    </Button>
-                </DataTemplate>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Stretch">
+            <ListBox x:Name="Listing" HorizontalAlignment="Left"  Margin="10,51,0,10" VerticalAlignment="Stretch" Width="290" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding Path = Full_info}" Height="40" Width="255"  Margin="1,1,0,0" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="Open_Song">
+                            <Button.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Сохранить" Click="Download" ></MenuItem>
+                                </ContextMenu>
+                            </Button.ContextMenu>
+                        </Button>
+                    </DataTemplate>
 
-            </ListBox.ItemTemplate>
-        </ListBox>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
-        <TextBox x:Name="Search" HorizontalAlignment="Left" Height="36" Margin="10,10,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="195" FontSize="20"/>
-        <Button Content="Поиск" ContentStringFormat="фцв" HorizontalAlignment="Left" Margin="210,10,0,0" VerticalAlignment="Top" Width="90" Height="36" Click="Button_Click" FontSize="20"></Button>
-        <Label x:Name="SongInfo" Content="{Binding Path = Name}" HorizontalAlignment="Left" Margin="305,10,0,0" VerticalAlignment="Top" Height="36" Width="324" FontSize="20"/>
-        <ScrollViewer x:Name="SongText" Content="{Binding Path=Text}" HorizontalAlignment="Left" Height="610" Margin="305,51,0,0" VerticalAlignment="Top" Width="595"/>
-        <ListBox x:Name="Chords" HorizontalAlignment="Left" Height="651" Margin="905,10,0,0" VerticalAlignment="Top" Width="356" >
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid x:Name="TapPanel" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="141" Width="325" >
-                        <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,0,0,75" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="200"/>
-                        <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,0,0,64" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="200"/>
-                        <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,0,0,53" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="200"/>
-                        <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,0,0,42" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="200"/>
-                        <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,0,0,31" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="200"/>
-                        <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,0,0,20" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="200"/>
-
-                        <Label Content="1&#xD;&#xA;2&#xD;&#xA;3&#xD;&#xA;4&#xD;&#xA;5&#xD;&#xA;6&#xD;&#xA;" HorizontalAlignment="Center" Margin="0,0,220,9" VerticalAlignment="Bottom" Height="80" FontSize="8.7"/>
-
-                        <Rectangle HorizontalAlignment="Center" Height="80" Margin="0,0,200,10" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="3"/>
-                        <Rectangle HorizontalAlignment="Center" Height="80" Margin="0,0,100,10" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="3"/>
-                        <Rectangle HorizontalAlignment="Center" Height="80" Margin="0,0,0,10" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="3"/>
-                        <Rectangle HorizontalAlignment="Center" Height="80" Margin="100,0,0,10" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="3"/>
-                        <Rectangle HorizontalAlignment="Center" Height="80" Margin="200,0,0,10" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="3"/>
-
-
-
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,150,72" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position1[0]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,50,72" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position1[1]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="50,0,0,72" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position1[2]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="150,0,0,72" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position1[3]}"/>
-
-
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,150,61" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position2[0]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,50,61" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position2[1]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="50,0,0,61" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position2[2]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="150,0,0,61" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position2[3]}"/>
-
-
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,150,50" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position3[0]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,50,50" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position3[1]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="50,0,0,50" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position3[2]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="150,0,0,50" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position3[3]}"/>
-
-
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,150,39" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position4[0]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,50,39" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position4[1]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="50,0,0,39" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position4[2]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="150,0,0,39" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position4[3]}"/>
-
-
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,150,28" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position5[0]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,50,28" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position5[1]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="50,0,0,28" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position5[2]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="150,0,0,28" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position5[3]}"/>
-
-
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,150,17" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position6[0]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,50,17" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position6[1]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="50,0,0,17" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position6[2]}"/>
-                        <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="150,0,0,17" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position6[3]}"/>
-
-
-                        <Label Content="{Binding Path = FreatCount[0]}" HorizontalAlignment="Center" Margin="0,0,150,80" VerticalAlignment="Bottom" Height="25" FontSize="12"/>
-                        <Label Content="{Binding Path = FreatCount[1]}" HorizontalAlignment="Center" Margin="0,0,50,80" VerticalAlignment="Bottom" Height="25" FontSize="12"/>
-                        <Label Content="{Binding Path = FreatCount[2]}" HorizontalAlignment="Center" Margin="50,0,0,80" VerticalAlignment="Bottom" Height="25" FontSize="12"/>
-                        <Label Content="{Binding Path = FreatCount[3]}" HorizontalAlignment="Center" Margin="150,0,0,80" VerticalAlignment="Bottom" Height="25" FontSize="12"/>
-
-                        <Label Content="{Binding Path = ChordName}" HorizontalAlignment="Center" Margin="84,0,85,95" VerticalAlignment="Bottom" Height="46" Width="156" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                    </Grid>
-
-                </DataTemplate>
-            </ListBox.ItemTemplate>
+            <TextBox x:Name="Search" HorizontalAlignment="Left" Height="36" Margin="10,10,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="195" FontSize="20"/>
+            <Button Content="Поиск" ContentStringFormat="фцв" HorizontalAlignment="Left" Margin="210,10,0,0" VerticalAlignment="Top" Width="90" Height="36" Click="Button_Click" FontSize="20"></Button>
+        </Grid>
+        <Grid Margin="305,0,367,0" >
+            <ScrollViewer x:Name="SongText" Content="{Binding Path=Text}" Margin="0,51,0,10"/>
+            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Label x:Name="SongInfo" Content="{Binding Path = Name}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="36" Width="324" FontSize="20"/>
             
-        </ListBox>
-        <Button Content="Старт" ContentStringFormat="фцв" HorizontalAlignment="Left" Margin="810,10,0,0" VerticalAlignment="Top" Width="90" Height="36" Click="Scroll_Click" FontSize="20"/>
-        <Button Content="Стоп" ContentStringFormat="фцв" HorizontalAlignment="Left" Margin="638,10,0,0" VerticalAlignment="Top" Width="93" Height="36" Click="Unscroll_Click" FontSize="20"/>
-        <Grid Height="36" Margin="731,10,470,654">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="20" />
-            </Grid.ColumnDefinitions>
+                <Button Content="Старт" ContentStringFormat="фцв" HorizontalAlignment="Right" Margin="0,10,0,0" VerticalAlignment="Top" Width="90" Height="36" Click="Scroll_Click" FontSize="20"/>
+                <Button Content="Стоп" ContentStringFormat="фцв" HorizontalAlignment="Right" Margin="0,10,172,0" VerticalAlignment="Top" Width="93" Height="36" Click="Unscroll_Click" FontSize="20"/>
 
-            <TextBox x:Name="SpeedBox" FontSize="25" Grid.Column="0" Text="5" TextChanged="SpeedBox_TextChanged" Margin="0,0,0,0"/>
-            <StackPanel Grid.Column="1" Orientation="Vertical">
-                <Button FontSize="13" Height="18" Click="Plus_click" Content="↑"/>
-                <Button FontSize="13" Height="18" Click="Min_click" Content="↓"/>
-            </StackPanel>
+                <Grid Height="36" Margin="0,10,93,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="74">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="20" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox x:Name="SpeedBox" FontSize="25" Grid.Column="0" Text="5" TextChanged="SpeedBox_TextChanged" Margin="0,0,0,0"/>
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <Button FontSize="13" Height="18" Click="Plus_click" Content="↑"/>
+                        <Button FontSize="13" Height="18" Click="Min_click" Content="↓"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid HorizontalAlignment="Right">
+            <ListBox x:Name="Chords" HorizontalAlignment="Right"  Margin="10,10,10,10" VerticalAlignment="Stretch" Width="346" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid x:Name="TapPanel" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="141" Width="325" >
+                            <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,0,0,75" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="200"/>
+                            <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,0,0,64" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="200"/>
+                            <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,0,0,53" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="200"/>
+                            <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,0,0,42" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="200"/>
+                            <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,0,0,31" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="200"/>
+                            <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,0,0,20" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="200"/>
+
+                            <Label Content="1&#xD;&#xA;2&#xD;&#xA;3&#xD;&#xA;4&#xD;&#xA;5&#xD;&#xA;6&#xD;&#xA;" HorizontalAlignment="Center" Margin="0,0,220,9" VerticalAlignment="Bottom" Height="80" FontSize="8.7"/>
+
+                            <Rectangle HorizontalAlignment="Center" Height="80" Margin="0,0,200,10" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="3"/>
+                            <Rectangle HorizontalAlignment="Center" Height="80" Margin="0,0,100,10" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="3"/>
+                            <Rectangle HorizontalAlignment="Center" Height="80" Margin="0,0,0,10" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="3"/>
+                            <Rectangle HorizontalAlignment="Center" Height="80" Margin="100,0,0,10" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="3"/>
+                            <Rectangle HorizontalAlignment="Center" Height="80" Margin="200,0,0,10" Fill="Black" Stroke="Black" VerticalAlignment="Bottom" Width="3"/>
+
+
+
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,150,72" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position1[0]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,50,72" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position1[1]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="50,0,0,72" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position1[2]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="150,0,0,72" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position1[3]}"/>
+
+
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,150,61" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position2[0]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,50,61" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position2[1]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="50,0,0,61" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position2[2]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="150,0,0,61" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position2[3]}"/>
+
+
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,150,50" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position3[0]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,50,50" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position3[1]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="50,0,0,50" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position3[2]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="150,0,0,50" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position3[3]}"/>
+
+
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,150,39" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position4[0]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,50,39" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position4[1]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="50,0,0,39" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position4[2]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="150,0,0,39" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position4[3]}"/>
+
+
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,150,28" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position5[0]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,50,28" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position5[1]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="50,0,0,28" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position5[2]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="150,0,0,28" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position5[3]}"/>
+
+
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,150,17" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position6[0]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="0,0,50,17" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position6[1]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="50,0,0,17" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position6[2]}"/>
+                            <Ellipse Fill="Black" HorizontalAlignment="Center" Height="10" Margin="150,0,0,17" Stroke="Black" VerticalAlignment="Bottom" Width="10" Visibility="{Binding Path = Position6[3]}"/>
+
+
+                            <Label Content="{Binding Path = FreatCount[0]}" HorizontalAlignment="Center" Margin="0,0,150,80" VerticalAlignment="Bottom" Height="25" FontSize="12"/>
+                            <Label Content="{Binding Path = FreatCount[1]}" HorizontalAlignment="Center" Margin="0,0,50,80" VerticalAlignment="Bottom" Height="25" FontSize="12"/>
+                            <Label Content="{Binding Path = FreatCount[2]}" HorizontalAlignment="Center" Margin="50,0,0,80" VerticalAlignment="Bottom" Height="25" FontSize="12"/>
+                            <Label Content="{Binding Path = FreatCount[3]}" HorizontalAlignment="Center" Margin="150,0,0,80" VerticalAlignment="Bottom" Height="25" FontSize="12"/>
+
+                            <Label Content="{Binding Path = ChordName}" HorizontalAlignment="Center" Margin="84,0,85,95" VerticalAlignment="Bottom" Height="46" Width="156" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        </Grid>
+
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
+            </ListBox>
         </Grid>
     </Grid>
 </Page>

@@ -15,7 +15,9 @@ namespace Project_A
         public WWDB()
         {
             con = new NpgsqlConnection(pg_sign_data);
-            con.Open();
+            try { con.Open(); }
+            catch { }
+           
         }
         public string TestConnection()
         {
@@ -66,13 +68,16 @@ namespace Project_A
             List<string> chordsnames = new List<string>();
             string com = "select chordname from chords";
             var cmd = new NpgsqlCommand(com, con);
-            NpgsqlDataReader Reader = cmd.ExecuteReader();
-            while (Reader.Read())
+            try
             {
-                chordsnames.Add(Reader.GetString(0));
+                NpgsqlDataReader Reader = cmd.ExecuteReader();
+                while (Reader.Read())
+                {
+                    chordsnames.Add(Reader.GetString(0));
+                }
+                Reader.Close();
             }
-            Reader.Close();
-
+            catch { }
             List<Chord> returnList = new List<Chord>();
             foreach (string chordname in chordsnames)
             {
@@ -126,15 +131,16 @@ namespace Project_A
 
             string com = "select name from songs";
             var cmd = new NpgsqlCommand(com, con);
-            NpgsqlDataReader Reader = cmd.ExecuteReader();
+            try { NpgsqlDataReader Reader = cmd.ExecuteReader();
 
-            while (Reader.Read())
-            {
-                songsnames.Add(Reader.GetString(0));
+                while (Reader.Read())
+                {
+                    songsnames.Add(Reader.GetString(0));
+                }
+                Reader.Close();
             }
-            Reader.Close();
-
-            foreach(string songname in songsnames)
+            catch { }
+            foreach (string songname in songsnames)
             {
                 songslist.Add(GetSongDB(songname));
             }
