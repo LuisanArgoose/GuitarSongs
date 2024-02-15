@@ -10,7 +10,7 @@ internal sealed class NameToPageTypeConverter
     private static readonly Type[] PageTypes = Assembly
         .GetExecutingAssembly()
         .GetTypes()
-        .Where(t => t.Namespace?.StartsWith("Wpf.Ui.Gallery.Views.Pages") ?? false)
+        .Where(t => t.Namespace?.StartsWith("GuitarSongs.Views.Pages") ?? false)
         .ToArray();
 
     public static Type? Convert(string pageName)

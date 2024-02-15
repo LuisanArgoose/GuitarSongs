@@ -35,8 +35,8 @@ public partial class App : Application
                 services.AddSingleton<WindowsProviderService>();
 
                 // Top-level pages
-                services.AddSingleton<DashboardPage>();
-                services.AddSingleton<DashboardViewModel>();
+                services.AddSingleton<DescriptionPage>();
+                services.AddSingleton<DescriptionViewModel>();
                 //services.AddSingleton<AllControlsPage>();
                 //services.AddSingleton<AllControlsViewModel>();
                 //services.AddSingleton<SettingsPage>();

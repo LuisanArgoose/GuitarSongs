@@ -8,11 +8,11 @@ using Wpf.Ui;
 
 namespace GuitarSongs.ViewModels.Pages;
 
-public partial class DashboardViewModel : ObservableObject
+public partial class DescriptionViewModel : ObservableObject
 {
     private readonly INavigationService _navigationService;
 
-    public DashboardViewModel(INavigationService navigationService)
+    public DescriptionViewModel(INavigationService navigationService)
     {
         _navigationService = navigationService;
     }

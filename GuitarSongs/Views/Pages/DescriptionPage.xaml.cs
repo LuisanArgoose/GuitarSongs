@@ -7,11 +7,11 @@ using GuitarSongs.ViewModels.Pages;
 
 namespace GuitarSongs.Views.Pages;
 
-public partial class DashboardPage : INavigableView<DashboardViewModel>
+public partial class DescriptionPage : INavigableView<DescriptionViewModel>
 {
-    public DashboardViewModel ViewModel { get; }
+    public DescriptionViewModel ViewModel { get; }
 
-    public DashboardPage(DashboardViewModel viewModel)
+    public DescriptionPage(DescriptionViewModel viewModel)
     {
         ViewModel = viewModel;
         DataContext = this;
